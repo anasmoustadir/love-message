@@ -2,7 +2,7 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>حب متحرك لـ Wiam</title>
+<title>رسائل حب لـ Wiam</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -58,27 +58,23 @@
 
 <div id="message"></div>
 
-<!-- موسيقى اختيارية -->
-<audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" autoplay loop></audio>
-
 <script>
   const messages = [
-    `Wiam ❤️<br><br>حبيت أسوي لك شي بسيط من قلبي 💕<br>وجودك في حياتي نعمة ✨<br>معك كل يوم يصير عيد حب 🌹<br>أحبك أكثر مما تتخيلي 💖`,
-    `Wiam 💖<br><br>كل مرة أفكر فيك، قلبي يرقص فرحاً 💕<br>وجودك يجعل حياتي أحلى 🌹<br>أنت أميرة قلبي 👑✨`,
-    `Wiam 🌹<br><br>أنتِ سبب سعادتي 💖<br>ضحكتك تملأ حياتي نورًا 🌟<br>كل يوم معك هو عيد حب 💕`,
-    `Wiam 💕<br><br>حبي لك لا يوصف بالكلمات 💖<br>وجودك في حياتي نعمة ✨<br>معك كل شيء يصبح أجمل 🌹`,
-    `Wiam ❤️<br><br>أحبك أكثر من أي شيء في هذا العالم 💕<br>معك كل يوم يصبح عيد حب 🌹✨`
+    `Wiam ❤️<br><br>حبيت أسوي لك شي من قلبي 💕<br>كل يوم معك يصير أجمل 🌹<br>وجودك معاي نعمة لا توصف ✨<br>أحبك أكثر مما تتخيلي 💖`,
+    `Wiam 💖<br><br>ضحكتك تملأ حياتي نورًا 🌟<br>كل لحظة معك هي عيد حب 💕<br>أنت أميرة قلبي 👑✨`,
+    `Wiam 🌹<br><br>حبي لك لا يوصف بالكلمات 💖<br>وجودك يجعل كل شيء أجمل 💕`,
+    `Wiam 💕<br><br>أحبك من كل قلبي ❤️<br>معك كل يوم يصبح أحلى ✨`,
+    `Wiam ❤️<br><br>كل مرة أنظر إليك، أشعر بالسعادة 🌹<br>أنتي كل شيء جميل في حياتي 💖`
   ];
 
   const messageDiv = document.getElementById("message");
 
-  // دالة لاختيار رسالة عشوائية
   function showRandomMessage() {
     const randomIndex = Math.floor(Math.random() * messages.length);
     messageDiv.innerHTML = messages[randomIndex];
   }
 
-  // أول مرة يظهر فيها رسالة
+  // أول مرة تظهر رسالة
   showRandomMessage();
 
   // تغيير الرسالة كل 5 ثواني
