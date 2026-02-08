@@ -2,7 +2,7 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>رسالة حب لـ Wiam</title>
+  <title>رسائل حب لـ Wiam</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -16,24 +16,29 @@
       line-height: 1.8;
       margin: 20px;
     }
-    button {
-      padding: 10px 25px;
-      font-size: 18px;
-      background-color: #ff4d88;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #e6005c;
-    }
   </style>
 </head>
 <body>
 
-  <div id="message">اضغطي الزر يا Wiam ❤️</div>
-  <button onclick="showMessage()">رسالة حب 💖</button>
+  <div id="message"></div>
+
+  <script>
+    // قائمة الرسائل
+    const messages = [
+      `Wiam ❤️<br><br>حبيت أسوي لك شي بسيط من قلبي 💕<br>وجودك في حياتي نعمة ✨<br>معك كل يوم يصير عيد حب 🌹<br>أحبك أكثر مما تتخيلي 💖`,
+      `Wiam 💖<br><br>كل مرة أفكر فيك، قلبي يرقص فرحاً 💕<br>وجودك يجعل حياتي أحلى 🌹<br>أنت أميرة قلبي 👑✨`,
+      `Wiam 🌹<br><br>أنتِ سبب سعادتي 💖<br>ضحكتك تملأ حياتي نورًا 🌟<br>كل يوم معك هو عيد حب 💕`,
+      `Wiam 💕<br><br>حبي لك لا يوصف بالكلمات 💖<br>وجودك في حياتي نعمة ✨<br>معك كل شيء يصبح أجمل 🌹`,
+      `Wiam ❤️<br><br>أحبك أكثر من أي شيء في هذا العالم 💕<br>معك كل يوم يصبح عيد حب 🌹✨`
+    ];
+
+    // يختار رسالة عشوائية عند تحميل الصفحة
+    const randomIndex = Math.floor(Math.random() * messages.length);
+    document.getElementById("message").innerHTML = messages[randomIndex];
+  </script>
+
+</body>
+</html>
 
   <script>
     function showMessage() {
