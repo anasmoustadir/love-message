@@ -2,7 +2,7 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>رسائل حب لـ Wiam</title>
+<title>رسالة حب لـ Wiam</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -56,30 +56,15 @@
 </head>
 <body>
 
-<div id="message"></div>
+<div id="message">
+  Wiam ❤️<br><br>
+  أحبك من كل قلبي 💕<br>
+  وجودك في حياتي يجعل كل شيء أجمل 🌹<br>
+  ضحكتك تملأ قلبي فرحًا ✨<br>
+  أنتِ كل شيء جميل بالنسبة لي 💖
+</div>
 
 <script>
-  const messages = [
-    `Wiam ❤️<br><br>حبيت أسوي لك شي من قلبي 💕<br>كل يوم معك يصير أجمل 🌹<br>وجودك معاي نعمة لا توصف ✨<br>أحبك أكثر مما تتخيلي 💖`,
-    `Wiam 💖<br><br>ضحكتك تملأ حياتي نورًا 🌟<br>كل لحظة معك هي عيد حب 💕<br>أنت أميرة قلبي 👑✨`,
-    `Wiam 🌹<br><br>حبي لك لا يوصف بالكلمات 💖<br>وجودك يجعل كل شيء أجمل 💕`,
-    `Wiam 💕<br><br>أحبك من كل قلبي ❤️<br>معك كل يوم يصبح أحلى ✨`,
-    `Wiam ❤️<br><br>كل مرة أنظر إليك، أشعر بالسعادة 🌹<br>أنتي كل شيء جميل في حياتي 💖`
-  ];
-
-  const messageDiv = document.getElementById("message");
-
-  function showRandomMessage() {
-    const randomIndex = Math.floor(Math.random() * messages.length);
-    messageDiv.innerHTML = messages[randomIndex];
-  }
-
-  // أول مرة تظهر رسالة
-  showRandomMessage();
-
-  // تغيير الرسالة كل 5 ثواني
-  setInterval(showRandomMessage, 5000);
-
   // توليد قلوب عشوائية
   function createHeart() {
     const heart = document.createElement("div");
@@ -100,7 +85,6 @@
     document.body.style.background = `linear-gradient(135deg, ${colors[colorIndex]}, #fff0f5)`;
     colorIndex = (colorIndex + 1) % colors.length;
   }, 8000);
-
 </script>
 </body>
 </html>
