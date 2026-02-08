@@ -1,60 +1,110 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>رسائل حب لـ Wiam</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #ffe6e6;
-      text-align: center;
-      padding-top: 100px;
-    }
-    #message {
-      font-size: 22px;
-      color: #b30059;
-      line-height: 1.8;
-      margin: 20px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>حب متحرك لـ Wiam</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow: hidden;
+    padding-top: 100px;
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffe6e6, #fff0f5);
+    transition: background 2s ease;
+  }
+
+  #message {
+    font-size: 24px;
+    color: #b30059;
+    line-height: 1.8;
+    margin: 20px;
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px);}
+    100% { opacity: 1; transform: translateY(0);}
+  }
+
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(45deg);
+    animation: float 6s linear infinite;
+  }
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+  }
+  .heart::before { top: -10px; left: 0; }
+  .heart::after { left: 10px; top: 0; }
+
+  @keyframes float {
+    0% { transform: translateY(0) rotate(45deg);}
+    100% { transform: translateY(-800px) rotate(45deg);}
+  }
+</style>
 </head>
 <body>
 
-  <div id="message"></div>
+<div id="message"></div>
 
-  <script>
-    // قائمة الرسائل
-    const messages = [
-      `Wiam ❤️<br><br>حبيت أسوي لك شي بسيط من قلبي 💕<br>وجودك في حياتي نعمة ✨<br>معك كل يوم يصير عيد حب 🌹<br>أحبك أكثر مما تتخيلي 💖`,
-      `Wiam 💖<br><br>كل مرة أفكر فيك، قلبي يرقص فرحاً 💕<br>وجودك يجعل حياتي أحلى 🌹<br>أنت أميرة قلبي 👑✨`,
-      `Wiam 🌹<br><br>أنتِ سبب سعادتي 💖<br>ضحكتك تملأ حياتي نورًا 🌟<br>كل يوم معك هو عيد حب 💕`,
-      `Wiam 💕<br><br>حبي لك لا يوصف بالكلمات 💖<br>وجودك في حياتي نعمة ✨<br>معك كل شيء يصبح أجمل 🌹`,
-      `Wiam ❤️<br><br>أحبك أكثر من أي شيء في هذا العالم 💕<br>معك كل يوم يصبح عيد حب 🌹✨`
-    ];
+<!-- موسيقى اختيارية -->
+<audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" autoplay loop></audio>
 
-    // يختار رسالة عشوائية عند تحميل الصفحة
+<script>
+  const messages = [
+    `Wiam ❤️<br><br>حبيت أسوي لك شي بسيط من قلبي 💕<br>وجودك في حياتي نعمة ✨<br>معك كل يوم يصير عيد حب 🌹<br>أحبك أكثر مما تتخيلي 💖`,
+    `Wiam 💖<br><br>كل مرة أفكر فيك، قلبي يرقص فرحاً 💕<br>وجودك يجعل حياتي أحلى 🌹<br>أنت أميرة قلبي 👑✨`,
+    `Wiam 🌹<br><br>أنتِ سبب سعادتي 💖<br>ضحكتك تملأ حياتي نورًا 🌟<br>كل يوم معك هو عيد حب 💕`,
+    `Wiam 💕<br><br>حبي لك لا يوصف بالكلمات 💖<br>وجودك في حياتي نعمة ✨<br>معك كل شيء يصبح أجمل 🌹`,
+    `Wiam ❤️<br><br>أحبك أكثر من أي شيء في هذا العالم 💕<br>معك كل يوم يصبح عيد حب 🌹✨`
+  ];
+
+  const messageDiv = document.getElementById("message");
+
+  // دالة لاختيار رسالة عشوائية
+  function showRandomMessage() {
     const randomIndex = Math.floor(Math.random() * messages.length);
-    document.getElementById("message").innerHTML = messages[randomIndex];
-  </script>
+    messageDiv.innerHTML = messages[randomIndex];
+  }
 
-</body>
-</html>
+  // أول مرة يظهر فيها رسالة
+  showRandomMessage();
 
-  <script>
-    function showMessage() {
-      document.getElementById("message").innerHTML = `
-        <strong>Wiam ❤️</strong><br><br>
-        حبيت أسوي لك شي بسيط من قلبي<br>
-        يمكن كلمات، بس كلها طالعة من إحساسي لك 💕<br><br>
+  // تغيير الرسالة كل 5 ثواني
+  setInterval(showRandomMessage, 5000);
 
-        وجودك في حياتي نعمة،<br>
-        وضحكتك سبب سعادتي،<br>
-        ومعك كل يوم يصير عيد حب 🌹<br><br>
+  // توليد قلوب عشوائية
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+    heart.style.width = heart.style.height = (10 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }
 
-        أحبك أكثر مما تتخيلي 💖✨
-      `;
-    }
-  </script>
+  setInterval(createHeart, 300);
 
+  // تغيير الخلفية تدريجيًا
+  const colors = ["#ffe6e6","#fff0f5","#ffd1dc","#ffe0f0"];
+  let colorIndex = 0;
+  setInterval(() => {
+    document.body.style.background = `linear-gradient(135deg, ${colors[colorIndex]}, #fff0f5)`;
+    colorIndex = (colorIndex + 1) % colors.length;
+  }, 8000);
+
+</script>
 </body>
 </html>
